@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <h1 class="text-center">Todo Application</h1>
+
+    <form (submit)="addTodo()" class="d-flex mt-3">
+        <input type="text" [(ngModel)]="newTodo" class="form-control me-2" name="newTodo"
+            placeholder="Enter a new task">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+    <ul class="list-group mt-4">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let todo of todos">
+            <span [class.completed]="todo.completed" [class.text-success]="todo.completed"
+              [class.text-danger]="!todo.completed">{{ todo.title }}</span>
+            <span [class.completed]="todo.completed" [ngClass]="{'text-white bg-success': todo.completed, 'bg-danger text-white': !todo.completed}"
+              style="border-radius: 10px;">
+              {{ todo.completed ? 'Completed' : 'Not Completed' }}
+            </span>
+            <div class="btn-group" role="group">
+              <button class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
+              <button class="btn btn-secondary" (click)="toggleCompleted(todo)">Toggle</button>
+            </div>
+          </li>
+          
+          
+          
+          
+          
+          
+
+
+    </ul>
+</div>
